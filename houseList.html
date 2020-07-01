@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>几种多列布局 grid column 推荐grid</title>
+</head>
+<style>
+    div,
+    p,
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .videoCards {
+        padding-top: 4px;
+        -moz-column-gap: 5px;
+        -webkit-column-gap: 5px;
+        column-gap: 5px;
+        column-count: 6;
+        margin: 10px;
+    }
+
+    .card {
+        display: inline-block;
+        margin-top: 20rpx;
+        width: 98%;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10);
+        border-radius: 14px;
+        break-inside: avoid;
+        overflow: auto;
+        margin-bottom: 10px;
+        background: green;
+        font-size: 13px;
+        text-align: center;
+        break-inside: avoid;
+    }
+
+    .card img {
+        width: 50%;
+        margin-top: 15px;
+    }
+
+    .yellow {
+        background: #FF8C00;
+    }
+
+    .green {
+        background: green;
+    }
+
+    .gray {
+        background: gray;
+    }
+
+    .card {
+        transition: 0.3s;
+        border-radius: 5px;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .container {
+        padding: 2px 16px;
+    }
+
+    body {
+        background: #000;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .statusBox {
+        margin-right: 10px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .statusBox span {
+        vertical-align: middle;
+    }
+
+    .statusBox :first-child {
+        background: green;
+        border-radius: 50%;
+        display: inline-block;
+        width: 20px;
+        vertical-align: middle;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    .graymes :first-child {
+        background: gray;
+    }
+
+    .yellowmes :first-child {
+        background: #FF8C00;
+    }
+
+    .statusBox :first-child {
+        vertical-align: middle;
+    }
+
+    /* column 作用于文字 */
+
+    .container div:last-child {
+        height: 30px;
+        word-break: break-all;
+    }
+
+    .imgBox {
+        width: 100%;
+    }
+
+
+
+
+    /* grids 布局 */
+    /* 媒体查询 */
+    @media screen and (max-width : 980px) and (min-width: 640px) {
+        #content {
+            width: 100%;
+            grid-template-columns: 33.3% 33.3% 33.3%;
+        }
+    }
+
+    @media screen and (max-width : 640px) {
+        #content {
+            width: 100%;
+            grid-template-columns: 50% 50%;
+        }
+    }
+
+    /* 媒体查询 */
+    @media screen and (min-width : 980px) {
+        #content {
+            width: 100%;
+            grid-template-columns: 25% 25% 25% 25%;
+        }
+    }
+
+    /* 媒体查询 */
+    @media screen and (min-width : 1980px) {
+        #content {
+            width: 100%;
+            grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+        }
+    }
+
+    #content {
+        display: grid;
+        margin: 0 auto;
+    }
+</style>
+<style>
+    /* flex 布局 */
+</style>
+<style>
+    .newspaper {
+        -moz-column-count: 3;
+        /* Firefox */
+        -webkit-column-count: 3;
+        /* Safari and Chrome */
+        column-count: 3;
+    }
+</style>
+<style>
+    .flexContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .flexContainer .card {
+        display: inline-block;
+        margin-top: 20rpx;
+        width: 300px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10);
+        border-radius: 14px;
+        break-inside: avoid;
+        overflow: auto;
+        margin-bottom: 10px;
+        background: green;
+        font-size: 13px;
+        text-align: center;
+        break-inside: avoid;
+    }
+</style>
+
+<body>
+    <div class="flex">
+        <div class="statusBox">
+            <span></span><span>正常</span>
+        </div>
+        <div class="statusBox graymes">
+            <span></span><span>故障</span>
+        </div>
+        <div class="statusBox yellowmes">
+            <span></span><span>离线</span>
+        </div>
+    </div>
+    <div class="videoCards">
+        <div class="card yellow">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card green">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card gray">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12112121212121212121212121212121223</div>
+            </div>
+        </div>
+    </div>
+    <div class="newspaper">
+        “当我年轻的时候，我梦想改变这个世界；当我成熟以后，我发现我不能够改变这个世界，我将目光缩短了些，决定只改变我的国家；当我进入暮年以后，我发现我不能够改变我们的国家，我的最后愿望仅仅是改变一下我的家庭，但是，这也不可能。当我现在躺在床上，行将就木时，我突然意识到：如果一开始我仅仅去改变我自己，然后，我可能改变我的家庭；在家人的帮助和鼓励下，我可能为国家做一些事情；然后，谁知道呢?我甚至可能改变这个世界。”
+    </div>
+
+    <div class="gridContainer">
+        <div id="content">
+            <div>
+                <div class="card yellow">
+                    <div class="imgBox">
+                        <img src="images/pos.png" alt="Avatar">
+                    </div>
+                    <div class="container">
+                        <div> 12123</div>
+                        <div>12123</div>
+                        <div>12123</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card yellow">
+                    <div class="imgBox">
+                        <img src="images/pos.png" alt="Avatar">
+                    </div>
+                    <div class="container">
+                        <div> 12123</div>
+                        <div>12123</div>
+                        <div>12123</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card yellow">
+                    <div class="imgBox">
+                        <img src="images/pos.png" alt="Avatar">
+                    </div>
+                    <div class="container">
+                        <div> 12123</div>
+                        <div>12123</div>
+                        <div>12123</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card yellow">
+                    <div class="imgBox">
+                        <img src="images/pos.png" alt="Avatar">
+                    </div>
+                    <div class="container">
+                        <div> 12123</div>
+                        <div>12123</div>
+                        <div>12123</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card yellow">
+                    <div class="imgBox">
+                        <img src="images/pos.png" alt="Avatar">
+                    </div>
+                    <div class="container">
+                        <div> 12123</div>
+                        <div>12123</div>
+                        <div>12123</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card yellow">
+                    <div class="imgBox">
+                        <img src="images/pos.png" alt="Avatar">
+                    </div>
+                    <div class="container">
+                        <div> 12123</div>
+                        <div>12123</div>
+                        <div>12123</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card yellow">
+                    <div class="imgBox">
+                        <img src="images/pos.png" alt="Avatar">
+                    </div>
+                    <div class="container">
+                        <div> 12123</div>
+                        <div>12123</div>
+                        <div>12123</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card yellow">
+                    <div class="imgBox">
+                        <img src="images/pos.png" alt="Avatar">
+                    </div>
+                    <div class="container">
+                        <div> 12123</div>
+                        <div>12123</div>
+                        <div>12123</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card yellow">
+                    <div class="imgBox">
+                        <img src="images/pos.png" alt="Avatar">
+                    </div>
+                    <div class="container">
+                        <div> 12123</div>
+                        <div>12123</div>
+                        <div>12123</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- flex 布局 -->
+    <div class="flexContainer">
+        <div class="card yellow">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card green">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card gray">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12123</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBox">
+                <img src="images/pos.png" alt="Avatar">
+            </div>
+            <div class="container">
+                <div> 12123</div>
+                <div>12123</div>
+                <div>12112121212121212121212121212121223</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
